@@ -11,9 +11,9 @@
               ></v-text-field>
           </v-col>
           <v-col>
+            <br>
               <p style="max-width:600px">
-                El client paga {{preuProducte}} euros per un producte.
-                
+                El client paga {{preuProducte}} euros per un producte. 
               </p>
           </v-col>
       </v-row>
@@ -34,6 +34,7 @@
             </p>
 
             <p> El producte ens ha costat {{ preuFinal }} </p>
+            <p> Per tant, el marge que et queda a tu com a venedor és de {{  }}  euros</p>
           </v-col>
       </v-row>
       <v-row>
@@ -58,7 +59,8 @@ export default{
     return{
       preuProducte:"",
       preuFinal:"",
-      iva:""
+      iva:"",
+      guany:""
       
 
     }
@@ -71,13 +73,16 @@ export default{
       return parseInt(this.preuProducte)
     },
     iva(){
-      return this.preuProducte*0.21 -parseInt(this.iva)
+      return this.preuProducte*0.21 -this.iva
    
       
     },
     preuFinal(){
-      return this.preuProducte-this.iva
+      return this.preuFinal-this.iva
     },
+    guanyVenedor(){
+      return 
+    }
     
     
     }
