@@ -7,12 +7,13 @@
               color="white"
               type="number"
               style="max-width:400px" outlined rounded
-              v-model="horesMensuals"
+              v-model="preuProducte"
               ></v-text-field>
           </v-col>
           <v-col>
               <p style="max-width:600px">
-                Si factures {{horesMensuals}} hores al mes, a {{ preuHora }} euros la hora, tens uns ingressos de {{ ingressos }} euros mensuals. 
+                El client paga {{preuProducte}} euros per un producte.
+                
               </p>
           </v-col>
       </v-row>
@@ -52,9 +53,7 @@
 export default{
   data(){
     return{
-      horesMensuals:0,
-      preuHora:0,
-      autonoms:300,
+      preuProducte:0,
       despeses:0,
       souNetDesitjat:0
 
@@ -65,7 +64,7 @@ export default{
       return parseInt(this.horesMensuals)
     }, */
     ingressos(){
-      return parseInt(this.horesMensuals)*parseInt(this.preuHora)
+      return parseInt(this.preuProducte)
     },
     iva(){
       return this.ingressos*0.21
