@@ -24,13 +24,16 @@
               color="white"
               type="number"
               style="max-width:400px" outlined rounded
-              v-model="preuHora"
+              v-model="preuFinal"
               ></v-text-field>
           </v-col>
           <v-col>
             <p style="max-width:600px">
-              D'aquests ingressos has de pagar {{iva}} euros a l'estat (21% d'IVA) i aproximadament {{ irpf }} euros a la seguretat social.
+              L'estat es queda impostos per valor de {{iva}} euros (21% d'IVA). 
+              
             </p>
+
+            <p> El producte ens ha costat {{ preuFinal }} </p>
           </v-col>
       </v-row>
       <v-row>
@@ -53,9 +56,10 @@
 export default{
   data(){
     return{
-      preuProducte:0,
-      despeses:0,
-      souNetDesitjat:0
+      preuProducte:"",
+      preuFinal:"",
+      iva:""
+      
 
     }
   },
@@ -63,17 +67,16 @@ export default{
     /* horesMensualsValidat(){
       return parseInt(this.horesMensuals)
     }, */
-    ingressos(){
+    preuProducte(){
       return parseInt(this.preuProducte)
     },
     iva(){
-      return this.ingressos*0.21
+      return this.preuProducte*0.21 -parseInt(this.iva)
+   
+      
     },
-    irpf(){
-      return this.ingressos*0.15
-    },
-    eurosNets(){
-      return this.ingressos-this.iva-this.irpf-parseInt(this.despeses)-this.autonoms
+    preuFinal(){
+      return this.preuProducte-this.iva
     },
     
     
