@@ -1,91 +1,54 @@
+
 <template>
   <v-container fluid>
       <v-row>
-          <v-col cols="6">
-              PREU
-              <v-text-field
-              color="white"
-              type="number"
-              style="max-width:400px" outlined rounded
-              v-model="preuProducte"
-              ></v-text-field>
-          </v-col>
-          <v-col>
-            <br>
-              <p style="max-width:600px">
-                El client paga {{preuProducte}} euros per un producte. 
-              </p>
-          </v-col>
-      </v-row>
-      <v-row>
-          <v-col>
-              COST
-              <v-text-field
-              color="white"
-              type="number"
-              style="max-width:400px" outlined rounded
-              v-model="preuFinal"
-              ></v-text-field>
-          </v-col>
-          <v-col>
-            <p style="max-width:600px">
-              L'estat es queda impostos per valor de {{iva}} euros (21% d'IVA). 
-              
-            </p>
-
-            <p> El producte ens ha costat {{ preuFinal }} </p>
-            <p> Per tant, el marge que et queda a tu com a venedor és de {{  }}  euros</p>
-          </v-col>
-      </v-row>
-      <v-row>
-          
-        
-         
-      </v-row>
-      <v-row>
-        <v-col>
-          <p>
-            {{SioNo}}
-          </p>
+          <h1></h1>
+        <v-col class="col">
+          Precio
+          <v-text-field  v-model="precioProducto"  color="black" style="max-width: 400px; " outlined rounded></v-text-field>
         </v-col>
+        <v-col class="col"> El cliente paga {{ precioProducto }} euros por un producto.</v-col>
+      </v-row>
+      <v-row>
+        <v-col class="col">
+          Cost
+          <v-text-field  v-model="cost"  color="black" style="max-width: 400px; " outlined rounded></v-text-field>
+        </v-col>
+        <v-col class="col"> El estado se queda impuestos por el valor de {{ iva }} euros (21% de IVA) <br> <br> Por tanto el beneficio que te queda a ti como vendedor es de {{ Ganancia }} euros. </v-col>
+        
       </v-row>
   </v-container>
-</template>
-
-<!-- al parseInt li tornes un número -->
-<script>
-export default{
-  data(){
-    return{
-      preuProducte:"",
-      preuFinal:"",
-      iva:"",
-      guany:""
-      
-
-    }
-  },
-  computed:{
-    /* horesMensualsValidat(){
-      return parseInt(this.horesMensuals)
-    }, */
-    preuProducte(){
-      return parseInt(this.preuProducte)
-    },
-    iva(){
-      return this.preuProducte*0.21 -this.iva
-   
-      
-    },
-    preuFinal(){
-      return this.preuFinal-this.iva
-    },
-    guanyVenedor(){
-      return 
-    }
-    
-    
-    }
+  </template>
+  
+  <script>
+  export default {
+      data(){
+          return{
+              precioProducto:"",
+              cost:"",
+              
+          }
+      },
+      computed:{
+          iva(){
+              return this.precioProducto * 0.21
+          },
+          Ganancia(){
+              return this.precioProducto - this.iva - this.cost
+          }
+      }
   }
-
-</script>
+  </script>
+  <style>
+  body{
+    background-color: rgb(166, 236, 233);
+    color: rgb(236, 17, 189);
+  }
+  .col{
+  /* min-height: 70vh;
+  padding-top: 20vh;
+  padding-bottom: 20vh; */
+  font-size: 40px;
+  }
+  
+  </style>
