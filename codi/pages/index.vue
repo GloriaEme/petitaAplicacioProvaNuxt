@@ -5,7 +5,7 @@
           
         
         <v-col class="col">
-          Precio
+          Precio TOTAL
           <v-text-field  v-model="precioProducto"  color="black" style="max-width: 400px; " outlined rounded></v-text-field>
         </v-col>
         <v-col class="col"> El cliente paga <strong>{{ precioProducto }} euros</strong> por un producto.</v-col>
