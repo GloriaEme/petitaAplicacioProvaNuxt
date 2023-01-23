@@ -2,19 +2,21 @@
 <template>
   <v-container fluid>
       <v-row>
-          <h1></h1>
+          
+        
         <v-col class="col">
           Precio
           <v-text-field  v-model="precioProducto"  color="black" style="max-width: 400px; " outlined rounded></v-text-field>
         </v-col>
-        <v-col class="col"> El cliente paga {{ precioProducto }} euros por un producto.</v-col>
+        <v-col class="col"> El cliente paga <strong>{{ precioProducto }} euros</strong> por un producto.</v-col>
       </v-row>
       <v-row>
         <v-col class="col">
           Cost
           <v-text-field  v-model="cost"  color="black" style="max-width: 400px; " outlined rounded></v-text-field>
         </v-col>
-        <v-col class="col"> El estado se queda impuestos por el valor de {{ iva }} euros (21% de IVA) <br> <br> Por tanto el beneficio que te queda a ti como vendedor es de {{ Ganancia }} euros. </v-col>
+        <v-col class="col"> El estado se queda impuestos por el valor de <strong>{{ iva }} euros</strong> (21% de IVA) <br> <br>
+           Por tanto el beneficio que te queda a ti como vendedor es de <strong>{{ Ganancia }} euros.</strong> </v-col>
         
       </v-row>
   </v-container>
